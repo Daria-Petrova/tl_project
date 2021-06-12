@@ -1,0 +1,132 @@
+$primary1-color:#f91155;
+$primary2-color:#ff4b77;
+$primary3-color:#d8003f;
+$secondary-color: #3c3e43;
+$accent-color: #ff7647;
+$text-color: #ffffff;
+
+@mixin title-text($size, $line-h) {
+  font: {
+    size: $size;
+    weight: 700;
+    family: "Roboto", sans-serif;
+  }
+  line-height: $line-h;
+  color: $text-color;
+}
+
+@mixin subtitle-text($size, $line-h) {
+  font: {
+    size: $size;
+    weight: 400;
+    family: "OpenSans", sans-serif;
+  }
+  line-height: $line-h;
+  color: $text-color;
+}
+
+@mixin button-text($size, $line-h) {
+  font: {
+    size: $size;
+    weight: 700;
+    family: "Roboto", sans-serif;
+  }
+  line-height: $line-h;
+  color: $text-color;
+}
+
+@mixin text( $size, $weight, $family, $line-h, $color){
+  font: {
+    size: $size;
+    weight: $weight;
+    family: $family, sans-serif;
+  }
+  line-height: $line-h;
+  color:  $color;
+}
+
+@mixin flex($direction){
+  display: flex;
+  flex-direction: $direction;
+}
+
+@mixin transition {
+  transition: 0.3s;
+}
+
+.a {
+  padding: 10%;
+}
+.room {
+  position: relative;
+  max-width: 372px;
+  width: 100%;
+}
+
+.room__item {
+  position: absolute;
+  bottom: 0;
+  @include flex(column);
+  padding: 0 24px 24px; 
+  border-radius: 10px;
+}
+
+.room__title {
+  @include title-text(24px, 32px);
+  margin-bottom: 10px;
+}
+
+.room__subtitle {
+  @include subtitle-text(16px, 24px);
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+.room__info {
+  @include flex(row);
+}
+
+.room-info__button {
+  align-self: center;
+  width: 135px;
+  padding: 12px 25px;
+  @include text(16px, 700, "OpenSans", 24px, $text-color);
+  text-align: center;
+  background-color: $primary1-color;
+  border-radius: 5px;
+  @include transition;
+  word-wrap: break-word;
+}
+
+.room-info__button:hover {
+  background-color: $primary3-color;
+  box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.3);
+  @include transition;
+}
+
+.room-info__button:focus {
+  background-color: $primary3-color;
+  color: rgba(255, 255, 255, 0.5);
+  @include transition;
+}
+
+.room-info__price,.room-price {
+  @include text(16px, 700, "OpenSans", 24px, $text-color);
+  padding-right: 20px;
+  margin: 0;
+}
+
+.room-price__value {
+  @include text(24px, 700, "Roboto", 32px, $primary2-color);
+}
+
+.room-price__currency {
+  @include text(23px, 400, "Roboto", 32px, #999999);
+}
+
+.room__info,
+.room-info {
+  border-top: 1px solid #d0d0d1;
+  padding-top: 20px;
+}
+
