@@ -57,10 +57,13 @@ $text-color: #ffffff;
 .a {
   padding: 10%;
 }
+
 .room {
   position: relative;
   max-width: 372px;
+  max-height: 372px;
   width: 100%;
+  margin: 16px;
 }
 
 .room__item {
@@ -110,14 +113,16 @@ $text-color: #ffffff;
   @include transition;
 }
 
-.room-info__price,.room-price {
-  @include text(16px, 700, "OpenSans", 24px, $text-color);
+.room-info__price,
+.room-price {
+  @include text(16px, 700, "OpenSans", 18px, $text-color);
   padding-right: 20px;
   margin: 0;
 }
 
 .room-price__value {
   @include text(24px, 700, "Roboto", 32px, $primary2-color);
+  letter-spacing: 2px;
 }
 
 .room-price__currency {
@@ -130,3 +135,31 @@ $text-color: #ffffff;
   padding-top: 20px;
 }
 
+.room__list {
+  list-style-type: none;
+  @include flex(row);
+  flex-wrap: wrap;
+  width: 1212px;
+  max-width: 100%;
+  height: auto;
+  grid-area: 2/2;
+  align-self:flex-start;
+  justify-self: center;
+  justify-content: center;
+}
+
+.room__block {
+  display: grid;
+  height: 100vh;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows:  1fr 1fr 1fr;
+}
+
+.room__heading {
+  @include text(36px, 700, "Roboto", 55px, #000000);
+  grid-area: 1/2;
+  align-self: end;
+  justify-self: center;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
