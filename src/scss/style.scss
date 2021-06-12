@@ -54,8 +54,13 @@ $text-color: #ffffff;
   transition: 0.3s;
 }
 
-.a {
-  padding: 10%;
+
+.room__gradient{
+  width: 372px;
+  height: 372px;
+  position: absolute;
+  background: linear-gradient(hsla(213, 24%, 31%, 0.01), #0a2240);
+  border-radius: 10px;
 }
 
 .room {
@@ -64,19 +69,57 @@ $text-color: #ffffff;
   max-height: 372px;
   width: 100%;
   margin: 16px;
+  border-radius: 0 0 10px 10px;
+}
+
+.room:hover 
+.room__bestprice, 
+.room-bestprice,
+.room:hover 
+.room-bestprice__text  {
+  opacity: 1;
+  @include transition;
+}
+
+.room__bestprice, 
+.room-bestprice {
+  position: absolute;
+  width: 213px;
+  height: 30px;
+  margin: 24px;
+  opacity: 0;
+  @include transition;
+  background-image: url(../assets/resources/best_price_sign.png);
+  z-index: 2;
+}
+
+.room-bestprice__text {
+  position:absolute;
+  margin: 4px 16px;
+  @include text(14px, 700, "Roboto", 20.9px, $text-color);
+  text-align: center;
+  @include transition;
+  opacity: 0;
+  z-index: 3;
 }
 
 .room__item {
   position: absolute;
+  border-radius: 10px;
   bottom: 0;
   @include flex(column);
-  padding: 0 24px 24px; 
-  border-radius: 10px;
+  padding: 24px; 
 }
 
 .room__title {
   @include title-text(24px, 32px);
   margin-bottom: 10px;
+  flex-grow: 2;
+}
+
+.room__title:hover {
+  text-decoration: underline;
+  text-decoration-thickness: 1.6px;
 }
 
 .room__subtitle {
