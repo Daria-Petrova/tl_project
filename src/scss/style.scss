@@ -61,7 +61,47 @@ $text-color: #ffffff;
   position: absolute;
   background: linear-gradient(hsla(213, 24%, 31%, 0.01), #0a2240);
   border-radius: 10px;
+ // @include transition;
 }
+
+.reserved {
+  height: 0;
+  background: linear-gradient($secondary-color, $secondary-color);
+  bottom: 0;
+  border-radius: 0 0 10px 10px;
+  z-index: 2;
+  //@include transition;
+}
+
+.reserved__message {
+  margin: 0;
+  padding: 25px 105px;
+  text-align: center;
+  @include text(14px, 400, "OpenSans", 21px, $text-color);
+  opacity: 0;
+}
+
+.reserved,.room__gradient > .reserved__message{
+  opacity: 1;
+  
+}
+
+
+.reserved__link {
+  color:$primary2-color;
+}
+
+.reserved__link:hover {
+  @include transition;
+  text-decoration: underline;
+  text-decoration-thickness: 1.6px;
+}
+
+.reserved__link:focus {
+  @include transition;
+  color: #FF97B0;
+}
+
 
 .room {
   position: relative;
@@ -130,6 +170,7 @@ $text-color: #ffffff;
 
 .room__info {
   @include flex(row);
+  
 }
 
 .room-info__button {
@@ -161,6 +202,7 @@ $text-color: #ffffff;
   @include text(16px, 700, "OpenSans", 18px, $text-color);
   padding-right: 20px;
   margin: 0;
+  align-self: center;
 }
 
 .room-price__value {
@@ -205,4 +247,13 @@ $text-color: #ffffff;
   justify-self: center;
   text-transform: uppercase;
   margin-bottom: 10px;
+}
+
+.hidden {
+  @include transition();
+  display: none;
+}
+.clicked {
+  @include transition();
+  color:rgba(255, 255, 255, 0.5);
 }
