@@ -64,12 +64,21 @@ $text-color: #ffffff;
  // @include transition;
 }
 
+.room__gradient1{
+  width: 372px;
+  height: 372px;
+  position: absolute;
+  //background: linear-gradient(hsla(213, 24%, 31%, 0.01), #0a2240);
+  //border-radius: 10px;
+ // @include transition;
+}
+
 .reserved {
   height: 0;
   background: linear-gradient($secondary-color, $secondary-color);
   bottom: 0;
   border-radius: 0 0 10px 10px;
-  z-index: 2;
+  z-index: 5;
   //@include transition;
 }
 
@@ -78,14 +87,7 @@ $text-color: #ffffff;
   padding: 25px 105px;
   text-align: center;
   @include text(14px, 400, "OpenSans", 21px, $text-color);
-  opacity: 0;
 }
-
-.reserved,.room__gradient > .reserved__message{
-  opacity: 1;
-  
-}
-
 
 .reserved__link {
   color:$primary2-color;
@@ -150,10 +152,12 @@ $text-color: #ffffff;
   @include flex(column);
   padding: 24px; 
 }
+.title__wrap {
+  margin-bottom: 10px;
+}
 
 .room__title {
   @include title-text(24px, 32px);
-  margin-bottom: 10px;
   flex-grow: 2;
 }
 
@@ -165,7 +169,7 @@ $text-color: #ffffff;
 .room__subtitle {
   @include subtitle-text(16px, 24px);
   margin-top: 0;
-  margin-bottom: 20px;
+  margin-bottom: 22px;
 }
 
 .room__info {
@@ -253,7 +257,28 @@ $text-color: #ffffff;
   @include transition();
   display: none;
 }
+
 .clicked {
   @include transition();
   color:rgba(255, 255, 255, 0.5);
+}
+
+.clicked:hover {
+  text-decoration: none;
+  cursor: default;
+}
+
+.double-clicked {
+  @include transition();
+  color:#ffffff;
+}
+
+.double-clicked:hover {
+  text-decoration: none;
+  cursor: default;
+}
+
+.clicked-image {
+  @include transition;
+  opacity: 0.3;
 }
