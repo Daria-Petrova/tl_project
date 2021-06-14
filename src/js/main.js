@@ -39,7 +39,7 @@ function setInfoPanel(item) {
                Math.ceil(Number(t.substr(0,4)))*2 +
                Number(temp1.getPropertyValue('padding-top').substr(0,2)) +
                Number(temp2.getPropertyValue('padding-bottom').substr(0,2));
-  let a = item.querySelector('.room__gradient1');
+  let a = item.querySelector('.room__reserved');
   a.classList.add('reserved');
   let b = item.querySelector('.reserved');
   b.style.height = height +'px';
