@@ -101,7 +101,7 @@ $border-radius: 10px;
 
 .reserved__link:hover {
   text-decoration: underline;
-  text-decoration-thickness: 1.6px;
+  text-decoration-thickness: 1px;
   @include transition;
 }
 
@@ -127,7 +127,6 @@ $border-radius: 10px;
     max-width: 288px;
     min-height: 347px;
   }
-  
 }
 
 .room:hover 
@@ -189,7 +188,7 @@ $border-radius: 10px;
 
 .room__title:hover {
   text-decoration: underline;
-  text-decoration-thickness: 1.6px;
+  text-decoration-thickness: 1px;
 }
 
 .room__subtitle {
