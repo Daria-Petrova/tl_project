@@ -114,7 +114,6 @@ $border-radius: 10px;
   position: relative;
   width: 372px;
   height: 372px;
-  //width: 100%;
   margin: 16px;
   background-color: #ffffff;
   border-radius: $border-radius;
@@ -128,6 +127,7 @@ $border-radius: 10px;
     max-width: 288px;
     min-height: 347px;
   }
+  
 }
 
 .room:hover 
@@ -346,6 +346,7 @@ $border-radius: 10px;
 .clicked:hover {
   text-decoration: none;
   cursor: default;
+  @include transition;
 }
 
 .double-clicked {
@@ -356,6 +357,7 @@ $border-radius: 10px;
 .double-clicked:hover {
   text-decoration: none;
   cursor: default;
+  @include transition;
 }
 
 .clicked-image {

@@ -1,20 +1,21 @@
+
 function changeTitleColor(item) {
   let child = item.querySelector('.room__title');
   if ( child.classList.contains('clicked')) {
     child.classList.add('double-clicked');
+  } else {
+    child.classList.add('clicked');
   }
-  child.classList.add('clicked');
 }
 
 function changeImageOpacity(item) {
   let child = item.querySelector('.room__image');
-  child.classList.add('clicked-image');
+  child.classList.toggle('clicked-image');
 }
 
 function changeRoomColor(item) {
-  item.addEventListener('mouseleave', () =>  setInfoPanel(item));
-  item.removeEventListener('mouseleave',() =>  setInfoPanel(item));
-}
+    item.addEventListener('mouseleave', () =>  setInfoPanel(item), {once: true});
+};
 
 function showMessage(item) {
   let a = item.querySelector('.reserved__message.hidden');
@@ -23,7 +24,7 @@ function showMessage(item) {
 
 function hiddenBestPrice(item) {
   let child = item.querySelector('.room__bestprice.room-bestprice');
-  if(child) child.classList.add('hidden');
+  if(child) child.classList.toggle('hidden');
 }
 
 function setInfoPanel(item) {
@@ -57,15 +58,50 @@ function setInfoPanel(item) {
 function reserveRoom() {
   document.addEventListener('click', ({target: t}) => {
     if (t.className === 'room-info__button') {
-      let parent = t.closest('.room')
-      changeTitleColor(parent);
-      changeRoomColor(parent);
-
-      //showMessage(parent)
-      //console.log(parent.classList)
-      //parent.classList.add('hidden')
+      let parent = t.closest('.room');
+      if(parent.classList !==  'room selected'){
+        changeTitleColor(parent);
+        changeRoomColor(parent);
+        parent.classList.add('selected');
+      } 
     }
   })
 };
 
+function cancelReserve() {
+  document.addEventListener('click', ({target: t}) => {
+      if (t.className !== 'room-info__button' && t.className !== 'reserved__link') {
+        let parent = t.closest('.room.selected');
+        if (parent) {
+          cancelTitleColor(parent);
+          hiddenMessage(parent);
+          cancelInfoPanel(parent);
+          changeImageOpacity(parent);
+          hiddenBestPrice(parent)
+        }
+    }
+  })
+};
+
+function cancelTitleColor(item) {
+  let child = item.querySelector('.room__title');
+  if ( child.classList.contains('clicked') && child.classList.contains('double-clicked')){
+    child.classList.remove('clicked');
+    child.classList.remove('double-clicked');
+  }
+}
+
+function cancelInfoPanel(item) {
+  if (item){
+    let a = item.querySelector('.room__reserved.reserved');
+    a.classList.remove('reserved'); 
+  }
+}
+
+function hiddenMessage(item) {
+  let a = item.querySelector('.reserved__message');
+  a.classList.add('hidden');
+}
+
 reserveRoom()
+cancelReserve()
