@@ -305,7 +305,6 @@ $border-radius: 10px;
   @media screen and (max-width: 1250px){
     grid-area: 2/1/2/4 ;
   }
-
 }
 
 .room__block {
@@ -313,7 +312,10 @@ $border-radius: 10px;
   height: 100vh;
   grid-template-columns: 1fr 3fr 1fr;
   grid-template-rows:  1fr 1fr 1fr; 
-
+  background: url(../assets/resources/Background.svg) no-repeat;
+  background-position: center;
+  background-size: cover;
+  overflow: auto;
   @media screen and (max-width: 515px) {
     align-self: center;
   }
