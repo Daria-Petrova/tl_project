@@ -1,0 +1,367 @@
+// $primary1-color:#f91155;
+// $primary2-color:#ff4b77;
+// $primary3-color:#d8003f;
+// $secondary-color: #3c3e43;
+// $accent-color: #ff7647;
+// $text-color: #ffffff;
+
+// $border-radius: 10px;
+
+// @mixin text( $size, $weight, $family, $line-h, $color){
+//   font: {
+//     size: $size;
+//     weight: $weight;
+//     family: $family, sans-serif;
+//   }
+//   line-height: $line-h;
+//   color:  $color;
+// }
+
+// @mixin flex($direction){
+//   display: flex;
+//   flex-direction: $direction;
+// }
+
+// @mixin transition {
+//   transition: 0.3s;
+// }
+
+// .room__gradient{
+//   position: absolute;
+//   width: 372px;
+//   height: 372px;
+//   background: linear-gradient(hsla(213, 24%, 31%, 0.01), #0a2240);
+//   border-radius: $border-radius;
+
+//   @media screen and (max-width: 1250px) {
+//     max-width: 336px;
+//     min-height: 420px;
+//   }
+
+//   @media screen and (max-width: 515px) {
+//     max-width: 288px;
+//     min-height: 347px;
+//   }
+// }
+
+// .room__image {
+//   @media screen and (max-width: 1250px){
+//     width: 336px;
+//     height: 420px;
+//     object-fit:cover;
+//     border-radius: 10px;
+//   }
+
+//   @media screen and (max-width: 515px) {
+//     width: 288px;
+//     height: 347px;
+//   }
+// }
+
+// .room__reserved{
+//   position: absolute;
+//   width: 372px;
+//   height: 372px;
+
+//   @media screen and (max-width: 1250px){
+//     max-width: 336px;
+//   }
+
+//   @media screen and (max-width: 515px){
+//     max-width: 288px;
+//   }
+// }
+
+// .reserved {
+//   bottom: 0;
+//   z-index: 5;
+//   height: 0;
+//   background: linear-gradient($secondary-color, $secondary-color);
+//   border-radius: 0 0 $border-radius $border-radius;
+// }
+
+// .reserved__message {
+//   margin: 0;
+//   padding: 25px 105px;
+//   text-align: center;
+//   @include text(14px, 400, "OpenSans", 21px, $text-color);
+
+//   @media screen and (max-width: 1250px) {
+//     padding: 15% 70px;
+//   }
+
+//   @media screen and (max-width: 515px) {
+//     padding: 20% 50px;
+//   }
+// }
+
+// .reserved__link {
+//   color:$primary2-color;
+// }
+
+// .reserved__link:hover {
+//   text-decoration: underline;
+//   text-decoration-thickness: 1px;
+//   @include transition;
+// }
+
+// .reserved__link:focus {
+//   color: #FF97B0;
+//   @include transition;
+// }
+
+// .room {
+//   position: relative;
+//   width: 372px;
+//   height: 372px;
+//   margin: 16px;
+//   background-color: #ffffff;
+//   border-radius: $border-radius;
+
+//   @media screen and (max-width: 1250px) {
+//     max-width: 336px;
+//     min-height: 420px;
+//   }
+
+//   @media screen and (max-width: 515px) {
+//     max-width: 288px;
+//     min-height: 347px;
+//   }
+// }
+
+// .room:hover 
+// .room__bestprice, 
+// .room-bestprice,
+// .room:hover 
+// .room-bestprice__text  {
+//   opacity: 1;
+//   @include transition;
+// }
+
+// .room__bestprice, 
+// .room-bestprice {
+//   position: absolute;
+//   z-index: 2;
+//   width: 213px;
+//   height: 30px;
+//   margin: 24px;
+//   opacity: 0;
+//   background-image: url(../assets/resources/best_price_sign.png);
+//   @include transition;
+// }
+
+// .room-bestprice__text {
+//   position:absolute;
+//   z-index: 3;
+//   margin: 4px 16px;
+//   @include text(14px, 700, "Roboto", 20.9px, $text-color);
+//   text-align: center;
+//   opacity: 0;
+//   @include transition;
+// }
+
+// .room__item {
+//   position: absolute;
+//   bottom: 0;
+//   @include flex(column);
+//   padding: 24px; 
+//   border-radius: $border-radius;
+
+//   @media screen and (max-width: 515px){
+//     padding: 21px;
+//   }
+// }
+
+// .title__wrap {
+//   margin-bottom: 10px;
+// }
+
+// .room__title {
+//   @include text(24px, 700, "Roboto", 32px, $text-color);
+//   flex-grow: 2;
+
+//   @media screen and (max-width: 515px) {
+//     font-size: 20px;
+//     line-height: 26px;
+//   }
+// }
+
+// .room__title:hover {
+//   text-decoration: underline;
+//   text-decoration-thickness: 1px;
+// }
+
+// .room__subtitle {
+//   margin-top: 0;
+//   margin-bottom: 22px;
+//   @include text(16px, 400, "OpenSans", 24px, $text-color);
+
+//   @media screen and (max-width: 515px) {
+//     font-size: 14px;
+//     line-height: 21px;
+//     padding-right: 30px;
+//   }
+// }
+
+// .room__info {
+//   @include flex(row);
+// }
+
+// .room-info__button {
+//   align-self: center;
+//   width: 135px;
+//   padding: 12px 25px;
+//   @include text(16px, 700, "OpenSans", 24px, $text-color);
+//   text-align: center;
+//   background-color: $primary1-color;
+//   border-radius: 5px;
+//   @include transition;
+//   word-wrap: break-word;
+
+//   @media screen and (max-width: 1250px){
+//     padding: 12px 75px;
+//     margin-top: 16px;
+//   }
+
+//   @media screen and (max-width: 515px){
+//     padding: 10px 55px;
+//     margin-top: 16px;
+//     font-size: 14px;
+//   }
+// }
+
+// .room-info__button:hover {
+//   background-color: $primary3-color;
+//   box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.3);
+//   @include transition;
+// }
+
+// .room-info__button:focus {
+//   color: rgba(255, 255, 255, 0.5);
+//   background-color: $primary3-color;
+//   @include transition;
+// }
+
+// .room-info__price,
+// .room-price {
+//   align-self: center;
+//   margin: 0;
+//   padding-right: 20px;
+//   @include text(16px, 700, "OpenSans", 18px, $text-color);
+
+//   @media screen and (max-width: 1250px) {
+//     padding-right: 170px;
+//   }
+
+//   @media screen and (max-width: 515px) {
+//     padding-right: 140px;
+//     font-size: 14px;
+//     line-height: 21px;
+//   }
+// }
+
+// .room-price__value {
+//   @include text(24px, 700, "Roboto", 32px, $primary2-color);
+//   letter-spacing: 2px;
+
+//   @media screen and (max-width: 515px) {
+//     font-size: 20px;
+//   }
+// }
+
+// .room-price__currency {
+//   @include text(23px, 400, "Roboto", 32px, #999999);
+
+//   @media screen and (max-width: 515px) {
+//     font-size: 20px;
+//   }
+// }
+
+// .room__info,
+// .room-info {
+//   @include flex(row);
+//   border-top: 1px solid #d0d0d1;
+//   padding-top: 20px;
+
+//   @media screen and (max-width: 1250px) {
+//     display: flex;
+//     flex-direction: column;
+//   }
+// }
+
+// .room__list {
+//   align-self:flex-start;
+//   justify-self: center;
+//   justify-content: center;
+//   @include flex(row);
+//   grid-area: 2/2;
+//   width: 1212px;
+//   max-width: 100%;
+//   list-style-type: none;
+//   align-items: stretch;
+//   flex-wrap: wrap;
+
+//   @media screen and (max-width: 1250px){
+//     grid-area: 2/1/2/4 ;
+//   }
+// }
+
+// .room__block {
+//   display: grid;
+//   height: 100vh;
+//   grid-template-columns: 1fr 3fr 1fr;
+//   grid-template-rows:  1fr 1fr 1fr; 
+//   background: url(../assets/resources/Background.svg) no-repeat;
+//   background-position: center;
+//   background-size: cover;
+//   overflow: auto;
+//   @media screen and (max-width: 515px) {
+//     align-self: center;
+//   }
+// }
+
+// .room__heading {
+//   grid-area: 1/2;
+//   align-self: end;
+//   justify-self: center;
+//   margin-bottom: 10px;
+//   @include text(36px, 700, "Roboto", 55px, #000000);
+//   text-transform: uppercase;
+
+//   @media screen and (max-width: 515px) {
+//     font-size: 24px;
+//     grid-area: 1/1/2/4;
+//   }
+// }
+
+// .hidden {
+//   display: none;
+//   @include transition(); 
+// }
+
+// .clicked {
+//   color:rgba(255, 255, 255, 0.5);
+//   @include transition();
+// }
+
+// .clicked:hover {
+//   text-decoration: none;
+//   cursor: default;
+//   @include transition;
+// }
+
+// .double-clicked {
+//   color:#ffffff;
+//   @include transition();
+// }
+
+// .double-clicked:hover {
+//   text-decoration: none;
+//   cursor: default;
+//   @include transition;
+// }
+
+// .clicked-image {
+//   opacity: 0.3;
+//   @include transition;
+// }
