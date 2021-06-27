@@ -1,5 +1,5 @@
-function resizeButton() {
-  let findSize = document.querySelectorAll('.room-info__button')
+function resizeObject(item) {
+  let findSize = document.querySelectorAll(item)
   let sizeArray = [].map.call(findSize, (obj) => obj.offsetHeight )
   let maxSize = (Math.max(...sizeArray))
   findSize.forEach( item => {
@@ -7,7 +7,8 @@ function resizeButton() {
   })
 }
 
-resizeButton();
+resizeObject('.room-info__button');
+resizeObject('.room-info__price');
 
 function reserveRoom() {
   let targetElement = this.event.target
@@ -37,16 +38,3 @@ function cancelReserve() {
 }
 
 cancelReserve();
-
-resizePrice();
-
-
-function resizePrice() {
-  let findSize = document.querySelectorAll('.room-info__price')
-  console.log(findSize)
-  let sizeArray = [].map.call(findSize, (obj) => obj.offsetHeight )
-  let maxSize = (Math.max(...sizeArray))
-  findSize.forEach( item => {
-    item.style.minHeight = maxSize + 'px'
-  })
-}

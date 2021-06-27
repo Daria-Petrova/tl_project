@@ -49,8 +49,8 @@ function styles() {
 }
 
 function images() {
-	return src('src/assets/images/src/**/*')
-	.pipe(newer('src/assets/images/*')) 
+	return src('src/assets/images/**/*')
+	.pipe(newer('src/assets/images/**/*')) 
 	.pipe(imagemin())
 	.pipe(dest('src/assets/images/'))
 }

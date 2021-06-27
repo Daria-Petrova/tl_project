@@ -49,11 +49,11 @@ $border-radius: 10px;
   justify-self: center;
   justify-content: center;
   @include flex(row);
+  align-items: stretch;
   grid-area: 2/2;
   width: 1212px;
   max-width: 100%;
   list-style-type: none;
-  align-items: stretch;
   flex-wrap: wrap;
 
   @media screen and (max-width: 1220px) {
@@ -126,18 +126,18 @@ $border-radius: 10px;
     }
 
     .room-info__button{
-      visibility: hidden;
       opacity: 0;
+      visibility: hidden;
     }
 
     .room__reserved{
       position: absolute;
       display: block;
       left: 0;
+      text-align: center;
       bottom: 0;
       padding: 0 80px 3%;
-      text-align: center;
-
+      
       @media screen and (max-width: 1220px) {
         padding-bottom: 15%;
       }
@@ -189,8 +189,8 @@ $border-radius: 10px;
   padding: 4px 16px;
   font: 700 14px/21px "Roboto";
   opacity: 0;
-  @include transition;
   background: url(/assets/resources/best_price_sign.svg) no-repeat;
+  @include transition;
 }
 
 .room__image-wrap {
@@ -226,9 +226,10 @@ $border-radius: 10px;
 
 .room__image > img {
   display: block;
+  height: 100%;
   border-radius: $border-radius;
   object-fit: cover;
-  height: 100%;
+  
 
   @media screen and (max-width: 1220px){
     max-width: 336px;
@@ -243,21 +244,21 @@ $border-radius: 10px;
 
 .room__info,
 .room-info {
-  grid-area: 1/1;
-  z-index: 2;
   position:initial;
   align-self: end;
+  grid-area: 1/1;
+  z-index: 2;
   @include flex(column);
   border-radius: $border-radius;
 
   @media screen and (max-width: 1220px) {
-    display: flex;
-    flex-direction: column;
+    @include flex(column);
   }
 }
 
 .room-info__title-wrap {
-  padding: 80px 24px 10px;
+  padding: 40px 24px 10px;
+  margin: 0;
 
   @media screen and (max-width: 767px) {
     padding-left: 20px;
@@ -319,15 +320,14 @@ $border-radius: 10px;
 
 .room-info__price-wrap {
   align-self: center;
-  margin: 0;
-  font: 700 16px/18px "OpenSans";
   @include flex(row);
+  margin: 0;
   padding:20px 24px 24px;
+  font: 700 16px/18px "OpenSans";
   border-radius: 0 0 $border-radius $border-radius;
 
   @media screen and (max-width: 1220px) {
-    display: flex;
-    flex-direction: column;
+    @include flex(column);
   }
 
 }
@@ -354,25 +354,25 @@ $border-radius: 10px;
 }
 
 .room-info__price-initial {
-  font: 700 19px/24px "Roboto";
   align-self: baseline;
+  font: 700 19px/24px "Roboto";
 }
 
 .room-info__price-value {
-  font: 700 24px/32px "Roboto";
-  color:$primary2-color;
   align-self: baseline;
   padding: 0 5px;
-
+  font: 700 24px/32px "Roboto";
+  color:$primary2-color;
+  
   @media screen and (max-width: 767px) {
     font-size: 20px;
   }
 }
 
 .room-info__price-currency {
-  font: 400 23px/32px "Roboto";
   align-self: baseline;
-
+  font: 400 23px/32px "Roboto";
+  
   @media screen and (max-width: 767px) {
     font-size: 20px;
   }
@@ -387,10 +387,10 @@ $border-radius: 10px;
   border-radius: 5px;
 
   &:hover {
-    cursor: pointer;
     background-color: $primary3-color;
     box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.3);
     @include transition;
+    cursor: pointer;
   }
 
   @media screen and (max-width: 1220px){
@@ -399,7 +399,7 @@ $border-radius: 10px;
   }
 
   @media screen and (max-width: 767px){
-    padding: 10px 63px;
+    padding: 8px 63px;
     margin-top: 16px;
     font-size: 14px;
   }
