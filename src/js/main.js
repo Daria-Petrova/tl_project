@@ -1,3 +1,14 @@
+function resizeButton() {
+  let findSize = document.querySelectorAll('.room-info__button')
+  let sizeArray = [].map.call(findSize, (obj) => obj.offsetHeight )
+  let maxSize = (Math.max(...sizeArray))
+  findSize.forEach( item => {
+    item.style.minHeight = maxSize + 'px'
+  })
+}
+
+resizeButton();
+
 function reserveRoom() {
   let targetElement = this.event.target
   if (targetElement.closest('.room')) {
@@ -26,3 +37,16 @@ function cancelReserve() {
 }
 
 cancelReserve();
+
+resizePrice();
+
+
+function resizePrice() {
+  let findSize = document.querySelectorAll('.room-info__price')
+  console.log(findSize)
+  let sizeArray = [].map.call(findSize, (obj) => obj.offsetHeight )
+  let maxSize = (Math.max(...sizeArray))
+  findSize.forEach( item => {
+    item.style.minHeight = maxSize + 'px'
+  })
+}

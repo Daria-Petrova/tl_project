@@ -23,9 +23,10 @@ $border-radius: 10px;
   grid-template-rows:  1fr 1fr 1fr; 
   background: url(../assets/resources/Background.svg) center/cover no-repeat;
   overflow: auto;
-  // @media screen and (max-width: 515px) {
-  //   align-self: center;
-  // }
+
+  @media screen and (max-width: 767px) {
+    align-self: center;
+  }
 }
 
 .room-title {
@@ -37,10 +38,10 @@ $border-radius: 10px;
   color:#000000;
   text-transform: uppercase;
 
-  // @media screen and (max-width: 515px) {
-  //   font-size: 24px;
-  //   grid-area: 1/1/2/4;
-  // }
+  @media screen and (max-width: 767px)  {
+    font-size: 24px;
+    grid-area: 1/1/2/4;
+  }
 }
 
 .room-list {
@@ -55,27 +56,32 @@ $border-radius: 10px;
   align-items: stretch;
   flex-wrap: wrap;
 
-  // @media screen and (max-width: 1250px){
-  //   grid-area: 2/1/2/4 ;
-  // }
+  @media screen and (max-width: 1220px) {
+    grid-area: 2/1/2/4 ;
+  }
 }
 
 .room {
   position: relative;
-  width: 372px;
+  max-width: 372px;
   height: auto;
   min-height: 327px;
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows:  1fr; 
   margin: 16px;
-  background-color:linear-gradient(rgba(60, 77, 98, 0.012), #0a2240);
+  background-color: #2D507C;
   border-radius: $border-radius;
   @include transition;
 
   &:hover {
     box-shadow:0 4px 15px 0 rgba(0, 0, 0, 0.6);
     @include transition;
+
+    .room__sign{
+      opacity: 1;
+      @include transition;
+    }
 
     &.room_reserved {
       box-shadow: none;
@@ -85,9 +91,14 @@ $border-radius: 10px;
   &.room_active {
     &:hover {
       .room-info__title {
-        color: rgba(255, 255, 255, 0.5);
+        color:rgba(255, 255, 255, 0.5);
         text-decoration: none;
       }
+    }
+
+    .room-info__button{
+      color: rgba(255, 255, 255, 0.5);
+      background-color: $primary3-color;
     }
   }
 
@@ -124,8 +135,12 @@ $border-radius: 10px;
       display: block;
       left: 0;
       bottom: 0;
-      padding: 0 80px 5%;
+      padding: 0 80px 3%;
       text-align: center;
+
+      @media screen and (max-width: 1220px) {
+        padding-bottom: 15%;
+      }
     }
 
     .room__image-wrap::before{
@@ -137,25 +152,55 @@ $border-radius: 10px;
       background-color: rgba(255, 255, 255, 0.4);
       border-radius: 10px;
       content: "";
+
+      @media screen and (max-width: 1220px) {
+        max-width: 336px;
+        min-height: 420px;
+      }
+
+      @media screen and (max-width: 767px)  {
+        max-width: 288px;
+        min-height: 347px;
+      }
+    }
+
+    .room__sign{
+      opacity: 0;
     }
   }
   
+  @media screen and (max-width: 1220px) {
+    max-width: 336px;
+    min-height: 420px;
+  }
 
+  @media screen and (max-width: 767px) {
+    max-width: 288px;
+    min-height: 347px;
+  }
+}
 
-  // @media screen and (max-width: 1250px) {
-  //   max-width: 336px;
-  //   min-height: 420px;
-  // }
-
-  // @media screen and (max-width: 515px) {
-  //   max-width: 288px;
-  //   min-height: 347px;
-  // }
+.room__sign {
+  position: absolute;
+  z-index: 2;
+  width: 213px;
+  height: 30px;
+  margin: 24px;
+  padding: 4px 16px;
+  font: 700 14px/21px "Roboto";
+  opacity: 0;
+  @include transition;
+  background: url(/assets/resources/best_price_sign.svg) no-repeat;
 }
 
 .room__image-wrap {
    position: relative;
    grid-area: 1/1;
+
+   @media screen and (max-width: 767px) {
+    max-width: 288px;
+    min-height: 347px;
+  }
 }
 
 .room__image-wrap::after {
@@ -167,6 +212,16 @@ $border-radius: 10px;
   background: linear-gradient(rgba(60, 77, 98, 0.01), #0a2240);
   border-radius: 10px;
   content: "";
+
+  @media screen and (max-width: 1220px){
+    max-width: 336px;
+    min-height: 420px;
+} 
+
+  @media screen and (max-width: 767px) {
+    max-width: 288px;
+    min-height: 347px;
+  }
 }
 
 .room__image > img {
@@ -174,30 +229,39 @@ $border-radius: 10px;
   border-radius: $border-radius;
   object-fit: cover;
   height: 100%;
+
+  @media screen and (max-width: 1220px){
+    max-width: 336px;
+    min-height: 420px;
+  }
+
+  @media screen and (max-width: 767px)  {
+    max-width: 288px;
+    min-height: 347px;
+  }
 }
 
 .room__info,
 .room-info {
-  position: absolute;
-  bottom: 0;
   grid-area: 1/1;
   z-index: 2;
   position:initial;
   align-self: end;
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows:  1fr ;
   @include flex(column);
   border-radius: $border-radius;
 
-  // @media screen and (max-width: 515px){
-  //   padding: 21px;
-  // }
+  @media screen and (max-width: 1220px) {
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 .room-info__title-wrap {
-  margin-bottom: 10px;
-  padding: 0 24px;
+  padding: 80px 24px 10px;
+
+  @media screen and (max-width: 767px) {
+    padding-left: 20px;
+  }
 }
 
 .room-info__title {
@@ -212,10 +276,12 @@ $border-radius: 10px;
     color: rgba(255, 255, 255, 0.5);
     text-decoration: none;
   }
-  // @media screen and (max-width: 515px) {
-  //   font-size: 20px;
-  //   line-height: 26px;
-  // }
+
+  @media screen and (max-width: 767px) {
+    font-size: 20px;
+    line-height: 26px;
+  }
+
 }
 
 .room-info__subtitle {
@@ -225,11 +291,11 @@ $border-radius: 10px;
   border-bottom: 1px solid #d0d0d1;
   border-color: rgba(255, 255, 255, 0.2);
 
-  // @media screen and (max-width: 515px) {
-  //   font-size: 14px;
-  //   line-height: 21px;
-  //   padding-right: 30px;
-  // }
+  @media screen and (max-width: 767px) {
+    font-size: 14px;
+    line-height: 21px;
+    padding-right: 30px;
+  }
 }
 
 .room__reserved {
@@ -238,7 +304,7 @@ $border-radius: 10px;
 }
 
 .room__reserved-link {
-  color: crimson;
+  color: $primary2-color;
   cursor: pointer;
 
   &:hover {
@@ -259,64 +325,66 @@ $border-radius: 10px;
   padding:20px 24px 24px;
   border-radius: 0 0 $border-radius $border-radius;
 
-//   @media screen and (max-width: 1250px) {
-//     padding-right: 170px;
-//   }
+  @media screen and (max-width: 1220px) {
+    display: flex;
+    flex-direction: column;
+  }
 
-//   @media screen and (max-width: 515px) {
-//     padding-right: 140px;
-//     font-size: 14px;
-//     line-height: 21px;
-//   }
 }
 
 .room-info__price {
+  @include flex(row);
+  align-items: flex-start;
+  flex-wrap: wrap;
+  align-content: center;
   align-self: center;
   margin: 0;
-  padding-right: 25px;
+  padding-right: 15px;
   font: 700 16px/18px "OpenSans";
   
-  //   @media screen and (max-width: 1250px) {
-  //     padding-right: 170px;
-  //   }
+    @media screen and (max-width: 1220px) {
+      padding-right: 170px;
+    }
   
-  //   @media screen and (max-width: 515px) {
-  //     padding-right: 140px;
-  //     font-size: 14px;
-  //     line-height: 21px;
-  //   }
+    @media screen and (max-width: 767px) {
+      padding-right: 120px;
+      font-size: 14px;
+      line-height: 21px;
+    }
 }
 
 .room-info__price-initial {
   font: 700 19px/24px "Roboto";
+  align-self: baseline;
 }
 
 .room-info__price-value {
   font: 700 24px/32px "Roboto";
   color:$primary2-color;
+  align-self: baseline;
+  padding: 0 5px;
 
-//   @media screen and (max-width: 515px) {
-//     font-size: 20px;
-//   }
+  @media screen and (max-width: 767px) {
+    font-size: 20px;
+  }
 }
 
 .room-info__price-currency {
   font: 400 23px/32px "Roboto";
+  align-self: baseline;
 
-//   @media screen and (max-width: 515px) {
-//     font-size: 20px;
-//   }
+  @media screen and (max-width: 767px) {
+    font-size: 20px;
+  }
 }
 
 .room-info__button {
   align-self: center;
-  width: 180px;
-  padding: 12px 24px;
+  padding: 12px 25px;
   font: 700 16px/24px "OpenSans";
   text-align: center;
   background-color: $primary1-color;
   border-radius: 5px;
-  word-wrap: break-word;
 
   &:hover {
     cursor: pointer;
@@ -324,15 +392,16 @@ $border-radius: 10px;
     box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.3);
     @include transition;
   }
-//   @media screen and (max-width: 1250px){
-//     padding: 12px 75px;
-//     margin-top: 16px;
-//   }
 
-//   @media screen and (max-width: 515px){
-//     padding: 10px 55px;
-//     margin-top: 16px;
-//     font-size: 14px;
-//   }
+  @media screen and (max-width: 1220px){
+    padding: 12px 75px;
+    margin-top: 16px;
+  }
+
+  @media screen and (max-width: 767px){
+    padding: 10px 63px;
+    margin-top: 16px;
+    font-size: 14px;
+  }
 }
 
