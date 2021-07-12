@@ -33,7 +33,7 @@ function scripts() {
 
 function startwatch() {
 	watch(['src/**/*.js', '!src/**/*.min.js'], scripts);
-	watch('src/assets/images/src/*', images);
+	watch('src/assets/images/**/*', images);
   watch('src/scss/**/*', styles);
   watch('src/*.html').on('change', browserSync.reload);
 }
