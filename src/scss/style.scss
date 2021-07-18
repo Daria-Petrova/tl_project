@@ -7,10 +7,11 @@ $main-color: #ffffff;
 
 $border-radius: 10px;
 
-$media-width-descktop: 1220px; 
+$media-width-desktop: 1220px; 
 $media-width-tablet: 767px;
 
-
+$font1-family: "Roboto", "Arial", sans-serif;
+$font2-family: "OpenSans", "Geneva", sans-serif;
 
 @mixin flex($direction){
   display: flex;
@@ -39,13 +40,17 @@ $media-width-tablet: 767px;
   align-self: end;
   justify-self: center;
   margin-bottom: 10px;
-  font: 700 36px/55px "Roboto", sans-serif;
+  font-family: $font1-family;
+  font-size: 36px;
+  line-height: 55px;
+  font-weight: 700;
   color:#000000;
   text-transform: uppercase;
 
   @media screen and (max-width: $media-width-tablet)  {
     font-size: 24px;
     grid-area: 1/1/2/4;
+    margin-bottom: 0;
   }
 }
 
@@ -61,7 +66,7 @@ $media-width-tablet: 767px;
   list-style-type: none;
   flex-wrap: wrap;
 
-  @media screen and (max-width: $media-width-descktop) {
+  @media screen and (max-width: $media-width-desktop) {
     grid-area: 2/1/2/4 ;
   }
 }
@@ -83,7 +88,7 @@ $media-width-tablet: 767px;
     box-shadow:0 4px 15px 0 rgba(0, 0, 0, 0.6);
     @include transition;
 
-    .room__sign{
+    .room__sign-wrap{
       opacity: 1;
       @include transition;
     }
@@ -109,8 +114,7 @@ $media-width-tablet: 767px;
 
   &.room_reserved {
     .room-info__price-wrap{
-      content: "";
-      background-color: $secondary-color;
+      display: none;
     }
 
     .room-info__subtitle{
@@ -136,14 +140,12 @@ $media-width-tablet: 767px;
     }
 
     .room__reserved{
-      position: absolute;
       display: block;
       left: 0;
       text-align: center;
       bottom: 0;
-      padding: 0 80px 3%;
       
-      @media screen and (max-width: $media-width-descktop) {
+      @media screen and (max-width: $media-width-desktop) {
         padding-bottom: 15%;
       }
     }
@@ -158,7 +160,7 @@ $media-width-tablet: 767px;
       border-radius: 10px;
       content: "";
 
-      @media screen and (max-width: $media-width-descktop) {
+      @media screen and (max-width: $media-width-desktop) {
         max-width: 336px;
         min-height: 420px;
       }
@@ -169,12 +171,12 @@ $media-width-tablet: 767px;
       }
     }
 
-    .room__sign{
+    .room__sign-wrap{
       opacity: 0;
     }
   }
   
-  @media screen and (max-width: $media-width-descktop) {
+  @media screen and (max-width: $media-width-desktop) {
     max-width: 336px;
     min-height: 420px;
   }
@@ -185,17 +187,32 @@ $media-width-tablet: 767px;
   }
 }
 
-.room__sign {
+.room__sign-wrap {
   position: absolute;
+  display: inline-flex;
   z-index: 2;
-  width: 213px;
-  height: 30px;
   margin: 24px;
-  padding: 4px 16px;
-  font: 700 14px/21px "Roboto";
   opacity: 0;
-  background: url(../assets/resources/best_price_sign.svg) no-repeat;
   @include transition;
+
+  &::after {
+    z-index: 10;
+    width: 36px;
+    height: 30px;
+    background: url(../assets/resources/icon-discount.svg) no-repeat ;
+    content: "";
+  }
+}
+
+.room__sign {
+  padding: 4px 4px 4px 16px;
+  font-family: $font1-family;
+  font-size: 14px;
+  line-height: 21px;
+  font-weight: 700;
+  color:$main-color;
+  background-color: $accent-color;
+  border-radius: 3px 0 0 3px;
 }
 
 .room__image-wrap {
@@ -217,10 +234,10 @@ $media-width-tablet: 767px;
   border-radius: 10px;
   content: "";
 
-  @media screen and (max-width: $media-width-descktop){
+  @media screen and (max-width: $media-width-desktop){
     max-width: 336px;
     min-height: 420px;
-} 
+  } 
 
   @media screen and (max-width: $media-width-tablet) {
     max-width: 288px;
@@ -233,9 +250,8 @@ $media-width-tablet: 767px;
   height: 100%;
   border-radius: $border-radius;
   object-fit: cover;
-  
 
-  @media screen and (max-width: $media-width-descktop){
+  @media screen and (max-width: $media-width-desktop){
     max-width: 336px;
     min-height: 420px;
   }
@@ -255,17 +271,18 @@ $media-width-tablet: 767px;
   @include flex(column);
   border-radius: $border-radius;
 
-  @media screen and (max-width: $media-width-descktop) {
+  @media screen and (max-width: $media-width-desktop) {
     @include flex(column);
   }
 }
 
 .room-info__title-wrap {
-  padding: 40px 24px 10px;
-  margin: 0;
+  padding-top: 40px;
+  padding-bottom: 10px;
+  margin: 0 24px;
 
   @media screen and (max-width: $media-width-tablet) {
-    padding-left: 20px;
+    margin:0 21px;
   }
 }
 
@@ -291,7 +308,10 @@ $media-width-tablet: 767px;
 .room-info__subtitle {
   padding-bottom: 22px;
   margin: 0 24px;
-  font: 400 16px/24px "OpenSans";
+  font-family: $font2-family;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
   border-bottom: 1px solid #d0d0d1;
   border-color: rgba(255, 255, 255, 0.2);
 
@@ -299,12 +319,20 @@ $media-width-tablet: 767px;
     font-size: 14px;
     line-height: 21px;
     padding-right: 30px;
+    margin: 0 21px;
   }
 }
 
 .room__reserved {
   display: none;
-  font: 400 14px/21px "OpenSans";
+  font-family: $font2-family;
+  font-size: 14px;
+  line-height: 21px;
+  font-weight: 400;
+  background: #3c3e43;
+  padding: 25px 75px 29px;
+  margin: 0;
+  border-radius: 0 0 $border-radius $border-radius;
 }
 
 .room__reserved-link {
@@ -325,14 +353,20 @@ $media-width-tablet: 767px;
   align-self: center;
   @include flex(row);
   margin: 0;
-  padding:20px 24px 24px;
-  font: 700 16px/18px "OpenSans";
-  border-radius: 0 0 $border-radius $border-radius;
+  padding: 18px 24px 22px;
+  font-family: $font2-family;
+  font-size: 16px;
+  line-height: 18px;
+  font-weight: 700;
 
-  @media screen and (max-width: $media-width-descktop) {
+  @media screen and (max-width: $media-width-desktop) {
     @include flex(column);
   }
 
+  @media screen and (max-width: $media-width-tablet) {
+    padding-left: 21px;
+    padding-right: 21px;
+  }
 }
 
 .room-info__price {
@@ -343,22 +377,34 @@ $media-width-tablet: 767px;
   align-self: center;
   margin: 0;
   padding-right: 15px;
-  font: 700 16px/24px "OpenSans";
-  
-    @media screen and (max-width: $media-width-descktop) {
+
+    @media screen and (max-width: $media-width-desktop) {
       padding-right: 170px;
     }
   
     @media screen and (max-width: $media-width-tablet) {
-      padding-right: 120px;
-      font-size: 14px;
-      line-height: 21px;
+      padding-right: 130px; 
     }
+}
+
+.room-info__price-title {
+  font-family: $font2-family;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 700;
+
+  @media screen and (max-width: $media-width-tablet) {
+    font-size: 14px;
+    line-height: 21px;
+  }
 }
 
 .room-info__price-initial {
   align-self: baseline;
-  font: 700 19px/24px "Roboto";
+  font-family: $font1-family;
+  font-size: 19px;
+  line-height: 24px;
+  font-weight: 700;
 
   @media screen and (max-width: $media-width-tablet) {
     font-size: 17px;
@@ -368,7 +414,10 @@ $media-width-tablet: 767px;
 .room-info__price-value {
   align-self: baseline;
   padding: 0 5px;
-  font: 700 24px/32px "Roboto";
+  font-family: $font1-family;
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: 700;
   color:$primary2-color;
   
   @media screen and (max-width: $media-width-tablet) {
@@ -378,7 +427,10 @@ $media-width-tablet: 767px;
 
 .room-info__price-currency {
   align-self: baseline;
-  font: 400 23px/32px "Roboto";
+  font-family:  $font1-family;
+  font-size: 23px;
+  line-height: 32px;
+  font-weight: 400;
   color:#999999;
   
   @media screen and (max-width: $media-width-tablet) {
@@ -387,9 +439,12 @@ $media-width-tablet: 767px;
 }
 
 .room-info__button {
-  align-self: center;
-  padding: 12px 25px;
-  font: 700 16px/24px "OpenSans";
+  align-self:center;
+  padding: 11px 25px 13px;
+  font-family: $font2-family;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 700;
   text-align: center;
   background-color: $primary1-color;
   border-radius: 5px;
@@ -401,13 +456,13 @@ $media-width-tablet: 767px;
     cursor: pointer;
   }
 
-  @media screen and (max-width: $media-width-descktop){
+  @media screen and (max-width: $media-width-desktop){
     padding: 12px 75px;
     margin-top: 16px;
   }
 
   @media screen and (max-width: $media-width-tablet){
-    padding: 8px 63px;
+    padding: 8px 65px;
     margin-top: 16px;
     font-size: 14px;
   }
