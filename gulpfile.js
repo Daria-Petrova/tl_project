@@ -49,10 +49,10 @@ function styles() {
 }
 
 function images() {
-	return src('src/assets/images/**/*')
-	.pipe(newer('src/assets/images/**/*')) 
+	return src('src/assets/images/**/*.jpg')
+	.pipe(newer('src/assets/images/**/*'))
 	.pipe(imagemin())
-	.pipe(dest('src/assets/images/'))
+	.pipe(dest('src/assets/images'))
 }
 
 function fonts() {
@@ -76,7 +76,7 @@ function buildcopy() {
 	return src([
 		'src/css/**/*.min.css',
 		'src/js/**/*.min.js',
-		'src/assets/images/*.png',
+		'src/assets/images/**/*.jpg',
 		'src/assets/resources/*',
 		'src/assets/fonts/*',
 		'src/**/*.html',

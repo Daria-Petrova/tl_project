@@ -7,6 +7,11 @@ $main-color: #ffffff;
 
 $border-radius: 10px;
 
+$media-width-descktop: 1220px; 
+$media-width-tablet: 767px;
+
+
+
 @mixin flex($direction){
   display: flex;
   flex-direction: $direction;
@@ -24,7 +29,7 @@ $border-radius: 10px;
   background: url(../assets/resources/Background.svg) center/cover no-repeat;
   overflow: auto;
 
-  @media screen and (max-width: 767px) {
+  @media screen and (max-width: $media-width-tablet) {
     align-self: center;
   }
 }
@@ -38,7 +43,7 @@ $border-radius: 10px;
   color:#000000;
   text-transform: uppercase;
 
-  @media screen and (max-width: 767px)  {
+  @media screen and (max-width: $media-width-tablet)  {
     font-size: 24px;
     grid-area: 1/1/2/4;
   }
@@ -56,7 +61,7 @@ $border-radius: 10px;
   list-style-type: none;
   flex-wrap: wrap;
 
-  @media screen and (max-width: 1220px) {
+  @media screen and (max-width: $media-width-descktop) {
     grid-area: 2/1/2/4 ;
   }
 }
@@ -138,7 +143,7 @@ $border-radius: 10px;
       bottom: 0;
       padding: 0 80px 3%;
       
-      @media screen and (max-width: 1220px) {
+      @media screen and (max-width: $media-width-descktop) {
         padding-bottom: 15%;
       }
     }
@@ -153,12 +158,12 @@ $border-radius: 10px;
       border-radius: 10px;
       content: "";
 
-      @media screen and (max-width: 1220px) {
+      @media screen and (max-width: $media-width-descktop) {
         max-width: 336px;
         min-height: 420px;
       }
 
-      @media screen and (max-width: 767px)  {
+      @media screen and (max-width: $media-width-tablet)  {
         max-width: 288px;
         min-height: 347px;
       }
@@ -169,12 +174,12 @@ $border-radius: 10px;
     }
   }
   
-  @media screen and (max-width: 1220px) {
+  @media screen and (max-width: $media-width-descktop) {
     max-width: 336px;
     min-height: 420px;
   }
 
-  @media screen and (max-width: 767px) {
+  @media screen and (max-width: $media-width-tablet) {
     max-width: 288px;
     min-height: 347px;
   }
@@ -197,7 +202,7 @@ $border-radius: 10px;
    position: relative;
    grid-area: 1/1;
 
-   @media screen and (max-width: 767px) {
+   @media screen and (max-width: $media-width-tablet) {
     max-width: 288px;
     min-height: 347px;
   }
@@ -208,17 +213,16 @@ $border-radius: 10px;
   top: 0;
   width: 372px;
   height: 100%;
-  background: transparent;
   background: linear-gradient(rgba(60, 77, 98, 0.01), #0a2240);
   border-radius: 10px;
   content: "";
 
-  @media screen and (max-width: 1220px){
+  @media screen and (max-width: $media-width-descktop){
     max-width: 336px;
     min-height: 420px;
 } 
 
-  @media screen and (max-width: 767px) {
+  @media screen and (max-width: $media-width-tablet) {
     max-width: 288px;
     min-height: 347px;
   }
@@ -231,12 +235,12 @@ $border-radius: 10px;
   object-fit: cover;
   
 
-  @media screen and (max-width: 1220px){
+  @media screen and (max-width: $media-width-descktop){
     max-width: 336px;
     min-height: 420px;
   }
 
-  @media screen and (max-width: 767px)  {
+  @media screen and (max-width: $media-width-tablet)  {
     max-width: 288px;
     min-height: 347px;
   }
@@ -251,7 +255,7 @@ $border-radius: 10px;
   @include flex(column);
   border-radius: $border-radius;
 
-  @media screen and (max-width: 1220px) {
+  @media screen and (max-width: $media-width-descktop) {
     @include flex(column);
   }
 }
@@ -260,7 +264,7 @@ $border-radius: 10px;
   padding: 40px 24px 10px;
   margin: 0;
 
-  @media screen and (max-width: 767px) {
+  @media screen and (max-width: $media-width-tablet) {
     padding-left: 20px;
   }
 }
@@ -278,11 +282,10 @@ $border-radius: 10px;
     text-decoration: none;
   }
 
-  @media screen and (max-width: 767px) {
+  @media screen and (max-width: $media-width-tablet) {
     font-size: 20px;
     line-height: 26px;
   }
-
 }
 
 .room-info__subtitle {
@@ -292,7 +295,7 @@ $border-radius: 10px;
   border-bottom: 1px solid #d0d0d1;
   border-color: rgba(255, 255, 255, 0.2);
 
-  @media screen and (max-width: 767px) {
+  @media screen and (max-width: $media-width-tablet) {
     font-size: 14px;
     line-height: 21px;
     padding-right: 30px;
@@ -326,7 +329,7 @@ $border-radius: 10px;
   font: 700 16px/18px "OpenSans";
   border-radius: 0 0 $border-radius $border-radius;
 
-  @media screen and (max-width: 1220px) {
+  @media screen and (max-width: $media-width-descktop) {
     @include flex(column);
   }
 
@@ -340,13 +343,13 @@ $border-radius: 10px;
   align-self: center;
   margin: 0;
   padding-right: 15px;
-  font: 700 16px/18px "OpenSans";
+  font: 700 16px/24px "OpenSans";
   
-    @media screen and (max-width: 1220px) {
+    @media screen and (max-width: $media-width-descktop) {
       padding-right: 170px;
     }
   
-    @media screen and (max-width: 767px) {
+    @media screen and (max-width: $media-width-tablet) {
       padding-right: 120px;
       font-size: 14px;
       line-height: 21px;
@@ -356,6 +359,10 @@ $border-radius: 10px;
 .room-info__price-initial {
   align-self: baseline;
   font: 700 19px/24px "Roboto";
+
+  @media screen and (max-width: $media-width-tablet) {
+    font-size: 17px;
+  }
 }
 
 .room-info__price-value {
@@ -364,7 +371,7 @@ $border-radius: 10px;
   font: 700 24px/32px "Roboto";
   color:$primary2-color;
   
-  @media screen and (max-width: 767px) {
+  @media screen and (max-width: $media-width-tablet) {
     font-size: 20px;
   }
 }
@@ -372,8 +379,9 @@ $border-radius: 10px;
 .room-info__price-currency {
   align-self: baseline;
   font: 400 23px/32px "Roboto";
+  color:#999999;
   
-  @media screen and (max-width: 767px) {
+  @media screen and (max-width: $media-width-tablet) {
     font-size: 20px;
   }
 }
@@ -393,12 +401,12 @@ $border-radius: 10px;
     cursor: pointer;
   }
 
-  @media screen and (max-width: 1220px){
+  @media screen and (max-width: $media-width-descktop){
     padding: 12px 75px;
     margin-top: 16px;
   }
 
-  @media screen and (max-width: 767px){
+  @media screen and (max-width: $media-width-tablet){
     padding: 8px 63px;
     margin-top: 16px;
     font-size: 14px;
